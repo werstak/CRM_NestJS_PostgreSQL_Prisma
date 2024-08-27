@@ -17,6 +17,9 @@ const common_1 = require("@nestjs/common");
 const articles_service_1 = require("./articles.service");
 const create_article_dto_1 = require("./dto/create-article.dto");
 const update_article_dto_1 = require("./dto/update-article.dto");
+const swagger_1 = require("@nestjs/swagger");
+const swagger_2 = require("@nestjs/swagger");
+const article_entity_1 = require("./entities/article.entity");
 let ArticlesController = class ArticlesController {
     constructor(articlesService) {
         this.articlesService = articlesService;
@@ -43,6 +46,7 @@ let ArticlesController = class ArticlesController {
 exports.ArticlesController = ArticlesController;
 __decorate([
     (0, common_1.Post)(),
+    (0, swagger_2.ApiCreatedResponse)({ type: article_entity_1.ArticleEntity }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_article_dto_1.CreateArticleDto]),
@@ -50,18 +54,21 @@ __decorate([
 ], ArticlesController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)('drafts'),
+    (0, swagger_2.ApiOkResponse)({ type: article_entity_1.ArticleEntity, isArray: true }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], ArticlesController.prototype, "findDrafts", null);
 __decorate([
     (0, common_1.Get)(),
+    (0, swagger_2.ApiOkResponse)({ type: article_entity_1.ArticleEntity, isArray: true }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], ArticlesController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
+    (0, swagger_2.ApiOkResponse)({ type: article_entity_1.ArticleEntity, isArray: true }),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -69,6 +76,7 @@ __decorate([
 ], ArticlesController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Patch)(':id'),
+    (0, swagger_2.ApiOkResponse)({ type: article_entity_1.ArticleEntity, isArray: true }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -77,13 +85,15 @@ __decorate([
 ], ArticlesController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
+    (0, swagger_2.ApiOkResponse)({ type: article_entity_1.ArticleEntity, isArray: true }),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], ArticlesController.prototype, "remove", null);
 exports.ArticlesController = ArticlesController = __decorate([
-    (0, common_1.Controller)('articles'),
+    (0, common_1.Controller)('article'),
+    (0, swagger_1.ApiTags)('Articles'),
     __metadata("design:paramtypes", [articles_service_1.ArticlesService])
 ], ArticlesController);
 //# sourceMappingURL=articles.controller.js.map

@@ -40,6 +40,22 @@ export declare class ArticlesController {
         createdAt: Date;
         updatedAt: Date;
     }, null, import("@prisma/client/runtime/library").DefaultArgs>;
-    update(id: string, updateArticleDto: UpdateArticleDto): string;
-    remove(id: string): string;
+    update(id: string, updateArticleDto: UpdateArticleDto): import(".prisma/client").Prisma.Prisma__ArticleClient<{
+        id: number;
+        title: string;
+        description: string | null;
+        body: string;
+        published: boolean;
+        createdAt: Date;
+        updatedAt: Date;
+    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
+    remove(id: string): import(".prisma/client").Prisma.Prisma__ArticleClient<{
+        id: number;
+        title: string;
+        description: string | null;
+        body: string;
+        published: boolean;
+        createdAt: Date;
+        updatedAt: Date;
+    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
 }
