@@ -29,10 +29,13 @@ let ArticlesService = class ArticlesService {
         return this.prisma.article.findUnique({ where: { id } });
     }
     update(id, updateArticleDto) {
-        return `This action updates a #${id} article`;
+        return this.prisma.article.update({
+            where: { id },
+            data: updateArticleDto,
+        });
     }
     remove(id) {
-        return `This action removes a #${id} article`;
+        return this.prisma.article.delete({ where: { id } });
     }
 };
 exports.ArticlesService = ArticlesService;
